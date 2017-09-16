@@ -1,0 +1,7 @@
+<div *ngIf='ownersCars'>
+  <img src={{ownersImage}} alt={{ownersName}}>
+  <h1>{{ownersName}}'s Cars!</h1>
+  <div *ngFor='let car of ownersCars'>
+    <h3>{{car.make}} - {{car.model}}</h3>
+  </div>
+</div>
