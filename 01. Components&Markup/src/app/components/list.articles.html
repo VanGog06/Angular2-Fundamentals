@@ -1,0 +1,4 @@
+<select (change)='handleArticleChange($event.target.value)'>
+  <option *ngFor='let article of articles' value={{article.title}}>{{article.title}}</option>
+</select>
+

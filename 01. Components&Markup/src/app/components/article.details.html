@@ -1,0 +1,44 @@
+<h2>Article Details:</h2>
+<img *ngIf='isImageShown' src={{article.image}} alt={{article.title}}>
+<h3>{{article.title}}</h3>
+<h3>{{article.author}}</h3>
+<p
+  [style.font-size.px]='fontSize'
+  [style.color]='color'
+  [style.background-color]='bgColor'
+>
+  {{descriptionToShow}}<span *ngIf='showDots'>...</span>
+</p>
+
+<read-more
+  [isShown]='isShown'
+  (showMoreDescription)=showMoreDescription($event)
+>
+</read-more>
+
+<show-hide-image
+  [showHideText]='showHideText'
+  (imageStateChanged)=imageStateChanged($event)
+>
+</show-hide-image>
+
+<increase
+  (sizeIncreased)='sizeIncreased($event)'
+>
+</increase>
+
+<decrease
+  (sizeDecreased)='sizeDecreased($event)'
+>
+</decrease>
+
+<font-color
+  (colorSelected)='colorSelected($event)'
+>
+</font-color>
+
+<background-color
+  (bgColorSelected)='bgColorSelected($event)'
+>
+</background-color>
+
