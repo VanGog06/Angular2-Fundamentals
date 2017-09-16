@@ -1,0 +1,17 @@
+<contributors-button
+  [contributorsText]='contributorsText'
+  (showContributorsClicked)='showContributorsClicked($event)'
+>
+</contributors-button>
+
+<div class="repos" *ngIf='areContributorsShown'>
+  <h1 class="contributors">Contributors:</h1>
+
+  <div *ngFor='let contributor of githubContributorsInfo; let i = index' class="contributors">
+    <div *ngIf='i < 5'>
+      <h3>{{contributor.login}}</h3>
+      <img src={{contributor.avatar_url}} alt={{contributor.login}}>
+      <p><strong>Contributions: </strong>{{contributor.contributions}}</p>
+    </div>
+  </div>
+</div>

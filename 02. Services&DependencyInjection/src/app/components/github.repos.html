@@ -1,0 +1,26 @@
+<repos-button
+  [reposText]='reposText'
+  (showReposClicked)='showReposClicked($event)'
+>
+</repos-button>
+
+<div class="repos" *ngIf='areReposShown'>
+  <h1 class="repos">Repos:</h1>
+
+  <div *ngFor='let repo of githubReposInfo; let i = index' class="repos">
+    <div *ngIf='i < 10'>
+      <h3>
+        <a href={{repo.html_url}}>{{repo.name}}</a>
+      </h3>
+      <p><strong>Language: </strong>{{repo.language}}</p>
+      <p><strong>Stars: </strong>{{repo.stargazers_count}}</p>
+      <p><strong>Watchers: </strong>{{repo.watchers}}</p>
+
+      <contributors
+        [user]='user'
+        [repo]='repo.name'
+      >
+      </contributors>
+    </div>
+  </div>
+</div>
