@@ -1,0 +1,10 @@
+<h1>Last 6 Cars!</h1>
+<div *ngIf='cars'>
+  <div *ngFor="let car of cars; let i = index" class='car'>
+    <div *ngIf='i < 6'>
+      <h3>{{car.make}} - {{car.model}}</h3>
+      <img src="{{car.image}}" alt={{car.id}}>
+    </div>
+  </div>
+</div>
+

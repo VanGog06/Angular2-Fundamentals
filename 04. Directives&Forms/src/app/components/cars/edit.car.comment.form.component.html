@@ -1,0 +1,42 @@
+<div *ngIf="car" class="container">
+  <h1>Comment:</h1>
+  <form #commentForm="ngForm" (ngSubmit)="editComment()">
+    <div class="form-group">
+      <label for="owner">Owner: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="owner"
+        name="owner"
+        value="comment.owner"
+        [(ngModel)]="comment.owner"
+        required
+        #commentOwner="ngModel"
+      >
+    </div>
+
+    <div [hidden]="commentOwner.valid || commentOwner.pristine" class="alert alert-danger">
+      Comment owner is required!
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="message"
+        name="message"
+        value="comment.message"
+        [(ngModel)]="comment.message"
+        required
+        #commentMessage="ngModel"
+      >
+    </div>
+
+    <div [hidden]="commentMessage.valid || commentMessage.pristine" class="alert alert-danger">
+      Comment message is required!
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!commentForm.form.valid">Submit</button>
+  </form>
+</div>

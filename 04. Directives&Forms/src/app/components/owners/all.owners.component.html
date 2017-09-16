@@ -1,0 +1,26 @@
+<div *ngIf='cars'>
+  <h1>All Owners</h1>
+
+  <sort-owners
+    (sortAscendingClicked)='sortOwnersAscending($event)'
+    (sortDescendingClicked)='sortOwnersDescending($event)'
+  >
+  </sort-owners>
+
+  <div *ngIf='areOwnersLeft'>
+    <div *ngFor='let owner of ownersToShow'>
+      <h2><a [routerLink]='["/owners/", owner]'>{{owner}}</a></h2>
+      <img src={{ownersImage}} alt={{owner}}>
+    </div>
+  </div>
+
+  <div *ngIf='!areOwnersLeft'>
+    <h2>There are no more owners to show!</h2>
+  </div>
+
+  <paging
+    (prevPageClicked)='prevPageTriggered($event)'
+    (nextPageClicked)='nextPageTriggered($event)'
+  >
+  </paging>
+</div>
